@@ -1,20 +1,18 @@
-# Profile Processor Lambda
+# Profile Processor Lambda for JVM Runtime
 
 ## Build
 
-For building this lambda's JS please execute:
+For building this lambda's JAR please execute:
 
 ```
-$ sbt clean npmPackage
+$ sbt clean assembly
 ```
 
-This will generate the lambda's JS in the `terraform/profile-processor-lambda` folder.
+This will generate the lambda's JAR in the `terraform/profile-processor-lambda` folder.
 
 ## Deploying Using Terraform
 
 The `terraform` package contains the assets for creating the required infrastructure and deploying this lambda on `localstack` using `terraform`.
-
-For building the lambda step `npm` and `zip` should be available.
 
 The first step is starting localstack docker container:
 
@@ -60,14 +58,5 @@ $ cd docker
 $ docker-compose down --volumes
 ```
 
-## Note - AWS Layers
-
-This application's lambdas are created using Scala-JS and Feral, they have a npm dependency (`uuid`), currently the `package.json` of each lambda is included and `terraform` installs each lambda dependencies before packaging.
-
-This issue can also be solved using AWS Layers (which are not supported in the `Localstack` community edition), to use layers for dependency handling instead packaging the lambdas with all its dependencies the following changes should be done in the application
-
 ## Useful Documentation
 - [Feral Framework](https://github.com/typelevel/feral)
-- [aws-sdk-scalajs-facade](https://github.com/exoego/aws-sdk-scalajs-facade)
-- [ScalaJS Types](https://www.scala-js.org/doc/interoperability/types.html)
-- [ScalaJS Facade Types](https://www.scala-js.org/doc/interoperability/facade-types.html)
