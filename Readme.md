@@ -1,7 +1,7 @@
 
 # AWS Lambda with Cats Effect + Feral and LocalStack
 
-This repository contains the full code of the following article [Article](https://www.fullstacklabs.co/blog/).
+This repository contains the full code of the following article [Article](https://www.fullstack.com/labs/resources/blog/aws-lambda-with-cats-effect-feral-and-localstack).
 
 Grouped in the following way:
 
